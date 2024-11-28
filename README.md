@@ -11,7 +11,7 @@ Click the button below to start a new development environment, though, if you wi
 3. Once the repo is created, edit the README file to change the URL of the "Open in Gitpod" button. The current URL reflects the author of this repo, you should change the username and the repo name so the button targets your new repository (in line 14 of this file). Once the changes are done, save the file by clicking on the button "Commit changes".
 4. Click on the button "Open in Gitpod":
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dharizza/gitpod-starter)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dharizza/tc-training)
 
 Note: Once the environment has been created you'll find yourself inside of them project folder with ddev already setup and the site installed.
 
