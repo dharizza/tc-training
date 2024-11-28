@@ -1,0 +1,21 @@
+uuid: 42249c29-f2f9-4aff-98ad-17ec1a84c32e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_steps
+field_name: field_steps
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

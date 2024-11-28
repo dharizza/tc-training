@@ -1,0 +1,62 @@
+uuid: e966e84c-229f-4202-86d2-a72beed0a9af
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.recipe.body
+    - field.field.node.recipe.field_chef
+    - field.field.node.recipe.field_cooking_time
+    - field.field.node.recipe.field_cuisine
+    - field.field.node.recipe.field_difficulty_level
+    - field.field.node.recipe.field_ingredients
+    - field.field.node.recipe.field_meal_category
+    - field.field.node.recipe.field_media
+    - field.field.node.recipe.field_steps
+    - node.type.recipe
+  module:
+    - smart_trim
+    - user
+id: node.recipe.teaser
+targetEntityType: node
+bundle: recipe
+mode: teaser
+content:
+  body:
+    type: smart_trim
+    label: hidden
+    settings:
+      trim_length: 50
+      trim_type: words
+      trim_suffix: ...
+      wrap_output: false
+      wrap_class: trimmed
+      more:
+        display_link: false
+        target_blank: false
+        link_trim_only: false
+        class: more-link
+        text: More
+        aria_label: 'Read more about [node:title]'
+      summary_handler: trim
+      trim_options:
+        text: false
+        trim_zero: false
+        replace_tokens: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_chef: true
+  field_cooking_time: true
+  field_cuisine: true
+  field_difficulty_level: true
+  field_ingredients: true
+  field_meal_category: true
+  field_media: true
+  field_steps: true

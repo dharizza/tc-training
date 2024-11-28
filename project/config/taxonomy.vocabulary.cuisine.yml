@@ -1,0 +1,9 @@
+uuid: 51976d3a-4044-4388-b99d-5b2dcd6bc357
+langcode: en
+status: true
+dependencies: {  }
+name: Cuisine
+vid: cuisine
+description: null
+weight: 0
+new_revision: false
