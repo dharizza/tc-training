@@ -1,0 +1,8 @@
+uuid: 22534dae-5312-4c34-afff-bb586ecd61ab
+langcode: en
+status: true
+dependencies: {  }
+id: node__recipe
+label: 'Content: Recipe'
+tags:
+  og_type: recipe

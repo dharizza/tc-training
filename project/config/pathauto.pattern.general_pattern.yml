@@ -1,0 +1,14 @@
+uuid: 3f5fcf0f-62b7-4352-bb4b-acbb6b05650a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: general_pattern
+label: 'General pattern'
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

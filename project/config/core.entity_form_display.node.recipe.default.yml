@@ -11,10 +11,12 @@ dependencies:
     - field.field.node.recipe.field_ingredients
     - field.field.node.recipe.field_meal_category
     - field.field.node.recipe.field_media
+    - field.field.node.recipe.field_metatags
     - field.field.node.recipe.field_steps
     - node.type.recipe
   module:
     - media_library
+    - metatag
     - path
     - text
 id: node.recipe.default
@@ -96,6 +98,14 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_metatags:
+    type: metatag_firehose
+    weight: 130
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
   field_steps:
     type: string_textfield
     weight: 128
@@ -103,6 +113,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path
@@ -138,6 +155,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
