@@ -37,7 +37,7 @@ final class HelloController extends ControllerBase {
         $output = $this->t('Hello @person_name! The node with ID @nid is @title', [
           '@person_name' => $person,
           '@nid' => $nid,
-          '@title' => $node->getTitle(),
+          '@title' => $node->toLink()->toString(),
         ]);
       } else {
         $output = $this->t('Hello @person_name!', [
