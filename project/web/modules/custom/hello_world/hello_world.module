@@ -4,3 +4,27 @@
  * @file
  * Primary module hooks for Hello World module.
  */
+
+use \Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function hello_world_form_node_chef_form_alter(&$form, FormStateInterface $form_state, $form_id) : void {
+  // ksm($form_id);
+  $form['options']['#open'] = TRUE;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function hello_world_form_alter(&$form, FormStateInterface $form_state, $form_id) : void {
+  $form_ids = [
+    'node_chef_form',
+    'node_article_form',
+    'node_recipe_form',
+  ];
+  if (in_array($form_id, $form_ids)) {
+    $form['options']['#open'] = TRUE;
+  }
+}
