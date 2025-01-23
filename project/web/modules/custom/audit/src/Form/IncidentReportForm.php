@@ -6,13 +6,41 @@ namespace Drupal\audit\Form;
 
 use Drupal\audit\Event\IncidentReport;
 use Drupal\audit\Event\IncidentReportEvents;
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a Audit form.
  */
 final class IncidentReportForm extends FormBase {
+
+  /**
+   * Entity type manager service.
+   * 
+   * @var Drupal\Core\Entity\EntityTypeManager
+   */
+  protected EntityTypeManager $entityTypeManager;
+
+  /**
+   * The event dispatcher service.
+   * 
+   * @var Drupal\Component\EventDispatcher\ContainerAwareEventDispatcher
+   */
+  protected $eventDispatcher;
+
+  public function __construct(EntityTypeManager $entityTypeManager, $eventDispatcher) {
+    $this->entityTypeManager = $entityTypeManager;
+    $this->eventDispatcher = $eventDispatcher;
+  }
+
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager'),
+      $container->get('event_dispatcher')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -66,7 +94,7 @@ final class IncidentReportForm extends FormBase {
   }
 
   public function getEntities() {
-    $storage = \Drupal::entityTypeManager()->getStorage('deletion_record');
+    $storage = $this->entityTypeManager->getStorage('deletion_record');
     $query = $storage->getQuery();
     $query->sort('deleted', 'DESC');
     $query->accessCheck(TRUE);
@@ -105,7 +133,7 @@ final class IncidentReportForm extends FormBase {
     // Create instance of the IncidentReport event object.
     $event = new IncidentReport($reporter_name, $reporter_email, $entity, $report);
     // Trigger the event.
-    \Drupal::service('event_dispatcher')->dispatch($event, IncidentReportEvents::NEW_INCIDENT);
+    $this->eventDispatcher->dispatch($event, IncidentReportEvents::NEW_INCIDENT);
 
     $this->messenger()->addStatus($this->t('The message has been sent.'));
     $form_state->setRedirect('<front>');
