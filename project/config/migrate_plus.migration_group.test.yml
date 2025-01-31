@@ -1,0 +1,10 @@
+uuid: 4c77e096-1881-416f-a004-608f5b8030dd
+langcode: en
+status: true
+dependencies: {  }
+id: test
+label: Test
+description: 'Test migrations'
+source_type: CSV
+module: null
+shared_configuration: null

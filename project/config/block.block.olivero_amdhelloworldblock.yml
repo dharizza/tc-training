@@ -1,0 +1,25 @@
+uuid: 4f163fb3-a77c-47df-a521-50083a56e9bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - amd_blocks
+    - system
+  theme:
+    - olivero
+id: olivero_amdhelloworldblock
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: amd_blocks_hello_world
+settings:
+  id: amd_blocks_hello_world
+  label: 'AMD Hello World Block'
+  label_display: '0'
+  provider: amd_blocks
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
