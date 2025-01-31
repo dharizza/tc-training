@@ -41,11 +41,13 @@
         "drupal/project_browser": "^2.0@alpha",
         "drupal/search_api": "^1.37",
         "drupal/security_review": "^3.1",
+        "drupal/shield": "^1.8",
         "drupal/site_audit": "^4.1",
         "drupal/smart_trim": "^2.2",
         "drupal/views_data_export": "^1.5",
         "drupal/webform": "^6.3@beta",
         "drush/drush": "^13.2",
+        "npm-asset/chosen": "^0.0.2",
         "oomphinc/composer-installers-extender": "^2.0"
     },
     "require-dev": {
@@ -90,8 +92,13 @@
             "web/core": [
                 "type:drupal-core"
             ],
+            "web/libraries/slick": [
+                "npm-asset/slick-carousel"
+            ],
             "web/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
             ],
             "web/modules/contrib/{$name}": [
                 "type:drupal-module"
