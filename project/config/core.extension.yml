@@ -66,6 +66,7 @@ module:
   search_api_db_defaults: 0
   security_review: 0
   serialization: 0
+  shield: 0
   shortcut: 0
   site_audit: 0
   smart_trim: 0
